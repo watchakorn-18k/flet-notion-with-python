@@ -2,8 +2,12 @@ import json
 
 from datetime import datetime, timezone, timedelta
 
-with open("db.json", "r", encoding="utf8") as f:
-    json_data = json.loads(f.read())
+try:
+    with open("db.json", "r", encoding="utf8") as f:
+        json_data = json.loads(f.read())
+except:
+    with open("./db.json", "w", encoding="utf8") as f:
+        json.dump("", f, ensure_ascii=False)
 
 
 def get_money() -> list:

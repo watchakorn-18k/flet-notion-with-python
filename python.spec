@@ -5,11 +5,11 @@ block_cipher = None
 
 
 a = Analysis(
-    ['main.py'],
+    ['ui.specd:\\FILE_CODE_ALL\\PYTHON_CODE\\Notion-web\\notion\\env_notion\\Scripts\\python.exe', 'd:/FILE_CODE_ALL/PYTHON_CODE/Notion-web/notion/main.py'],
     pathex=[],
-    binaries=[("icon.ico",".")],
+    binaries=[],
     datas=[],
-    hiddenimports=['connect.py,readDB.py,stateDB.py'],
+    hiddenimports=[],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
@@ -24,22 +24,27 @@ pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
 exe = EXE(
     pyz,
     a.scripts,
-    a.binaries,
-    a.zipfiles,
-    a.datas,
     [],
-    name='บัญชีรายรับสอนโปรแกรม',
+    exclude_binaries=True,
+    name='python',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
-    upx_exclude=[],
-    runtime_tmpdir=None,
-    console=False,
+    console=True,
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon="icon.ico"
+)
+coll = COLLECT(
+    exe,
+    a.binaries,
+    a.zipfiles,
+    a.datas,
+    strip=False,
+    upx=True,
+    upx_exclude=[],
+    name='python',
 )
