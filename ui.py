@@ -210,3 +210,6 @@ def main(page: ft.Page):
 
 def run() -> None:
     ft.app(target=main)
+
+
+# ft.app(target=main)
