@@ -2,17 +2,20 @@ import json
 
 from datetime import datetime, timezone, timedelta
 
-try:
-    with open("db.json", "r", encoding="utf8") as f:
-        json_data = json.loads(f.read())
-except:
-    with open("./db.json", "w", encoding="utf8") as f:
-        json.dump("", f, ensure_ascii=False)
+
+def get_data():
+    try:
+        with open("db.json", "r", encoding="utf8") as f:
+            json_data = json.loads(f.read())
+    except:
+        with open("./db.json", "w", encoding="utf8") as f:
+            json.dump("", f, ensure_ascii=False)
+    return json_data
 
 
 def get_money() -> list:
     list_tmp = []
-    for i in json_data["results"]:
+    for i in get_data()["results"]:
         if len(i["properties"].keys()) != 1:
             list_tmp.append(i["properties"]["income"]["number"])
     return list_tmp
@@ -20,7 +23,7 @@ def get_money() -> list:
 
 def get_list_name() -> list:
     list_temp = []
-    for i in json_data["results"]:
+    for i in get_data()["results"]:
         if len(i["properties"]["client-name"]["title"]) != 0:
             list_temp.append(
                 i["properties"]["client-name"]["title"][0]["text"]["content"]
@@ -30,7 +33,7 @@ def get_list_name() -> list:
 
 def get_list_all() -> list:
     list_temp = []
-    for i in json_data["results"]:
+    for i in get_data()["results"]:
         utc_dt = datetime.fromisoformat(i["created_time"].replace("Z", "+00:00"))
         local_tz = timezone(timedelta(hours=7))  # adjust hours as needed
         local_dt = utc_dt.astimezone(local_tz)
