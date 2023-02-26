@@ -22,17 +22,26 @@ class MoneyApp(ft.UserControl):
             dlg_modal.open = False
             self.page.update()
 
-        def send_data_to_notion(e):
+        def send_data_to_notion(e) -> bool:
             def validate():
-                if isinstance(self.income.current.value, int):
-                    self.text_alert.current.color = "greenaccent"
-                    self.text_alert.current.value = f"กรอกข้อมูลถูกต้อง"
-                    self.page.update()
-                    return True
+                if len(self.client_name.current.value) != 0:
+                    try:
+                        int(self.income.current.value)
+                        self.text_alert.current.color = "greenaccent"
+                        self.text_alert.current.value = f"กรอกข้อมูลถูกต้อง"
+                        self.page.update()
+                        return True
+                    except:
+                        self.text_alert.current.color = "redaccent"
+                        self.text_alert.current.value = (
+                            f"ช่อง {self.income.current.label} ต้องเป็นตัวเลข"
+                        )
+                        self.page.update()
+                        return False
                 else:
                     self.text_alert.current.color = "redaccent"
                     self.text_alert.current.value = (
-                        f"ช่อง {self.income.current.label} ต้องเป็นตัวเลข"
+                        f"ช่อง {self.client_name.current.label} ต้องระบุข้อความ"
                     )
                     self.page.update()
                     return False
