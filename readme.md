@@ -1,6 +1,6 @@
 <h1 align="center"> Flet notion python </h1>
 
-<p align="center"> <img width="40%" src="https://i.imgur.com/ackusnx.png"> </p>
+<p align="center"> <img width="40%" src="https://cdn.discordapp.com/attachments/581018943041306641/1079497402110722190/gamedfdsf.gif"> </p>
 
 ✨ Inspiration from [Python Tutorial UI Design Using Flet - Line Indent](https://youtu.be/JJCjAUmNXBs)
 
