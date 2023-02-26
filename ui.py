@@ -352,4 +352,4 @@ def run() -> None:
     ft.app(target=main)
 
 
-ft.app(target=main)
+# ft.app(target=main)
