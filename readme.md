@@ -13,6 +13,7 @@ git clone https://github.com/watchakorn-18k/flet-notion-python
 cd flet-notion-python
 pip install -r requirements.txt
 ```
+![](https://cdn.discordapp.com/attachments/581018943041306641/1082752531094061066/terminal.gif)
 
 # Settings
 
